@@ -1,1 +1,21 @@
+{
+  "name": "Python, Jupyter & Bash Environment",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bullseye",
 
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",        // Python language features
+        "ms-python.vscode-pylance", // Autocomplete and type checking
+        "ms-toolsai.jupyter"       // Native Jupyter Notebook rendering
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  // Automatically installs the Jupyter infrastructure when the container builds
+  "postCreateCommand": "pip3 install --user jupyter ipykernel"
+}
